@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modern age calculator with famous people database and MBTI personality matching">
+    <title>Age Calculator & Personality Matcher Pro</title>
+    
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="theme-icon">🌙</span>
+    </button>
+
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="uz">UZ</button>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        
+        <!-- Header Section -->
+        <header class="header">
+            <h1 class="main-title" data-translate="main_title">Age Calculator & Personality Hub Pro</h1>
+            <p class="subtitle" data-translate="subtitle">Discover your age, birthday twins, and personality matches</p>
+        </header>
+
+        <!-- Age Calculator Section -->
+        <section class="card age-calculator-section" aria-labelledby="age-calc-heading">
+            <h2 id="age-calc-heading" class="section-title">
+                <span class="icon">🎂</span> <span data-translate="age_calc_title">Age Calculator</span>
+            </h2>
+            
+            <div class="input-group">
+                <label for="dob-input" class="input-label" data-translate="enter_dob">Enter Your Date of Birth</label>
+                <input 
+                    type="date" 
+                    id="dob-input" 
+                    class="date-input"
+                    aria-describedby="dob-help"
+                    max=""
+                >
+                <small id="dob-help" class="help-text" data-translate="dob_help">Select your birth date to calculate your age</small>
+            </div>
+
+            <!-- Profile Picture Upload -->
+            <div class="profile-section">
+                <div class="profile-pic-container">
+                    <img src="" alt="Profile" id="profile-pic" class="profile-pic">
+                    <label for="pic-upload" class="pic-upload-btn">
+                        📷 <span data-translate="add_photo">Add Photo</span>
+                    </label>
+                    <input type="file" id="pic-upload" accept="image/*" style="display: none;">
+                </div>
+            </div>
+
+            <!-- Age Results Display -->
+            <div id="age-result" class="result-display" role="status" aria-live="polite">
+                <div class="age-grid">
+                    <div class="age-item gradient-1">
+                        <span class="age-number" id="years">-</span>
+                        <span class="age-label" data-translate="years">Years</span>
+                    </div>
+                    <div class="age-item gradient-2">
+                        <span class="age-number" id="months">-</span>
+                        <span class="age-label" data-translate="months">Months</span>
+                    </div>
+                    <div class="age-item gradient-3">
+                        <span class="age-number" id="days">-</span>
+                        <span class="age-label" data-translate="days">Days</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Extended Age Info -->
+            <div id="extended-age" class="extended-age">
+                <div class="age-extended-grid">
+                    <div class="extended-item">
+                        <span class="extended-number" id="hours">-</span>
+                        <span class="extended-label" data-translate="hours">Hours</span>
+                    </div>
+                    <div class="extended-item">
+                        <span class="extended-number" id="minutes">-</span>
+                        <span class="extended-label" data-translate="minutes">Minutes</span>
+                    </div>
+                    <div class="extended-item">
+                        <span class="extended-number" id="seconds">-</span>
+                        <span class="extended-label" data-translate="seconds">Seconds</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Info: Zodiac, Day Name, Days Until Birthday -->
+            <div id="additional-info" class="additional-info">
+                <div class="info-card">
+                    <span class="info-icon">🌟</span>
+                    <div class="info-content">
+                        <span class="info-label" data-translate="zodiac">Zodiac Sign</span>
+                        <span class="info-value" id="zodiac">-</span>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <span class="info-icon">📅</span>
+                    <div class="info-content">
+                        <span class="info-label" data-translate="born_on">Born on</span>
+                        <span class="info-value" id="day-name">-</span>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <span class="info-icon">🎉</span>
+                    <div class="info-content">
+                        <span class="info-label" data-translate="next_birthday">Next Birthday</span>
+                        <span class="info-value" id="days-until">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Share & Export Buttons -->
+            <div class="action-buttons">
+                <button class="action-btn share-btn" id="share-btn">
+                    <span class="btn-icon">🔗</span>
+                    <span data-translate="share">Share</span>
+                </button>
+                <button class="action-btn export-btn" id="export-btn">
+                    <span class="btn-icon">📄</span>
+                    <span data-translate="export">Export PDF</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- AdSense Placeholder -->
+        <div class="ad-placeholder" role="complementary" aria-label="Advertisement">
+            <p>Advertisement Space</p>
+            <!-- Insert AdSense code here -->
+        </div>
+
+        <!-- Famous People Section -->
+        <section class="card famous-people-section" aria-labelledby="famous-heading">
+            <h2 id="famous-heading" class="section-title">
+                <span class="icon">⭐</span> <span data-translate="birthday_twins">Your Birthday Twins</span>
+            </h2>
+            
+            <div id="famous-results" class="famous-results" role="region" aria-live="polite">
+                <p class="placeholder-text" data-translate="famous_placeholder">Enter your date of birth above to find famous people who share your birthday!</p>
+            </div>
+        </section>
+
+        <!-- MBTI Personality Section -->
+        <section class="card mbti-section" aria-labelledby="mbti-heading">
+            <h2 id="mbti-heading" class="section-title">
+                <span class="icon">🧠</span> <span data-translate="mbti_title">MBTI Personality Matcher</span>
+            </h2>
+            
+            <div class="input-group">
+                <label for="mbti-select" class="input-label" data-translate="select_mbti">Select Your MBTI Type</label>
+                <select id="mbti-select" class="mbti-select" aria-describedby="mbti-help">
+                    <option value="" data-translate="choose_personality">-- Choose your personality type --</option>
+                    <option value="INTJ">INTJ - The Architect</option>
+                    <option value="INTP">INTP - The Logician</option>
+                    <option value="ENTJ">ENTJ - The Commander</option>
+                    <option value="ENTP">ENTP - The Debater</option>
+                    <option value="INFJ">INFJ - The Advocate</option>
+                    <option value="INFP">INFP - The Mediator</option>
+                    <option value="ENFJ">ENFJ - The Protagonist</option>
+                    <option value="ENFP">ENFP - The Campaigner</option>
+                    <option value="ISTJ">ISTJ - The Logistician</option>
+                    <option value="ISFJ">ISFJ - The Defender</option>
+                    <option value="ESTJ">ESTJ - The Executive</option>
+                    <option value="ESFJ">ESFJ - The Consul</option>
+                    <option value="ISTP">ISTP - The Virtuoso</option>
+                    <option value="ISFP">ISFP - The Adventurer</option>
+                    <option value="ESTP">ESTP - The Entrepreneur</option>
+                    <option value="ESFP">ESFP - The Entertainer</option>
+                </select>
+                <small id="mbti-help" class="help-text" data-translate="mbti_help">Not sure? Take a free test online!</small>
+            </div>
+
+            <!-- MBTI Results Display -->
+            <div id="mbti-results" class="mbti-results" role="region" aria-live="polite">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Age Calculator Hub Pro. All rights reserved.</p>
+            <p class="footer-note" data-translate="privacy_note">Data is processed locally. No information is stored.</p>
+        </footer>
+    </div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
